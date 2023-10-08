@@ -1,7 +1,5 @@
 # Pointers
-
-# Dynamic
-
+# Dynamic Arrays
 ## Allocation
 
 ## Freeing
