@@ -3,3 +3,7 @@
 # Float
 
 # String
+
+# Bool
+
+# Conversions
