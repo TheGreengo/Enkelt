@@ -51,3 +51,7 @@ func func1() {
 func passed = func1`
 ```
 # Lambda Functions
+These I might regret adding later on, and I might change my mind and remove them. For now they will take the form of 
+```
+(type name, type name) -> {return_value}
+```
