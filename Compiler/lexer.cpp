@@ -9,7 +9,7 @@
 
 class Lexer {
     std::ifstream file;
-    std::vector<TokenType> tokens;
+    std::vector<Token> tokens;
 
     Lexer(std::string loadFile) {
         file = std::ifstream(loadFile);
@@ -19,12 +19,17 @@ class Lexer {
         file.close(); 
     }
 
-    std::vector<TokenType> run() {
+    std::vector<Token> run() {
         char curr;
     
         while (curr != EOF) {
             curr = file.get();
-            std::cout << curr;
+
+            if (curr == '+') {
+                if (file.peek() == '=') {
+                    tokens.push_back(Token("+=", TokenType::P_EQ));
+                }
+            }
         }
 
         return tokens;
