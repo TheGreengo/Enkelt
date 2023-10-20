@@ -1,8 +1,9 @@
 #include <iostream>
 #include <fstream>
 
+
 int main(int argc, char ** argv) {
-    std::cout << "Hello World" << std::endl;
+    std::cout << "Enkelt compiler starting" << std::endl;
 
     std::ifstream in("test.txt");
 
