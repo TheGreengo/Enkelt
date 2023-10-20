@@ -14,6 +14,11 @@ class Lexer {
     }
 
     void run() {
-        
+        char curr;
+    
+        while (curr != EOF) {
+            curr = file.get();
+            std::cout << curr;
+        }
     }
 };
