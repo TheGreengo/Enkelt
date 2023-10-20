@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 
+// ok, there
+// TODO: 
 class Lexer {
     std::ifstream file;
 
