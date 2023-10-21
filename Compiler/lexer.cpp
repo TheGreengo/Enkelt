@@ -28,6 +28,30 @@ class Lexer {
                         tokens.push_back(Token("+", ADD_SYM));
                     }
                 }
+                if (curr == '-') {
+                    if (file.peek() == '=') {
+                        tokens.push_back(Token("-=", S_EQ));
+                        file.get();
+                    } else {
+                        tokens.push_back(Token("-", SUB_SYM));
+                    }
+                }
+                if (curr == '*') {
+                    if (file.peek() == '=') {
+                        tokens.push_back(Token("*=", M_EQ));
+                        file.get();
+                    } else {
+                        tokens.push_back(Token("*", MULT_SYM));
+                    }
+                }
+                if (curr == '%') {
+                    if (file.peek() == '=') {
+                        tokens.push_back(Token("%=", R_EQ));
+                        file.get();
+                    } else {
+                        tokens.push_back(Token("%", REM_SYM));
+                    }
+                }
             }
             file.close();
         }

@@ -17,6 +17,7 @@ enum TokenType {
     GRT_SYM,
     COMMA,
     PERIOD,
+    REM_SYM,
     L_PAR,
     R_PAR,
     SEMI_COLON,
