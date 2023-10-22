@@ -36,7 +36,8 @@ enum TokenType {
     M_EQ,
     D_EQ,
     R_EQ,
-    AMP
+    AMP,
+    FILE_END
 };
 
 class Token {
@@ -158,6 +159,9 @@ class Token {
                 break;
             case AMP:
                 result.append(": AMP");
+                break;
+            case FILE_END:
+                result.append(": EOF");
                 break;
             default:
                 result.append("INVALID");
