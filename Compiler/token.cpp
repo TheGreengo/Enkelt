@@ -35,7 +35,8 @@ enum TokenType {
     S_EQ,
     M_EQ,
     D_EQ,
-    R_EQ
+    R_EQ,
+    AMP
 };
 
 class Token {
@@ -154,6 +155,9 @@ class Token {
                 break;
             case R_EQ:
                 result.append(": R_EQ");
+                break;
+            case AMP:
+                result.append(": AMP");
                 break;
             default:
                 result.append("INVALID");
