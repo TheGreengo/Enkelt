@@ -1,3 +1,5 @@
 thing + += + = ++ + = 
 thang thung
-theng
+theng - *
++ 5 += 
+-= %= == = 

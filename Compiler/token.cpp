@@ -1,43 +1,43 @@
 #include <string>
 
 enum TokenType {
-    INT,
-    FLOAT,
-    CHAR,
-    STRING,
-    BOOL,
-    TYPE,
-    KEY_WORD,
-    VAR_NAME,
-    MULT_SYM,
-    ADD_SYM,
-    SUB_SYM,
-    EQU_SYM,
-    LES_SYM,
-    GRT_SYM,
-    COMMA,
-    PERIOD,
-    REM_SYM,
-    L_PAR,
-    R_PAR,
-    SEMI_COLON,
-    COLON,
-    L_BRACK,
-    R_BRACK,
-    L_BRACE,
-    R_BRACE,
-    FORW_SL,
-    BACK_SL,
-    D_QUOTE,
-    S_QUOTE,
-    BAR,
-    P_EQ,
-    S_EQ,
-    M_EQ,
-    D_EQ,
-    R_EQ,
-    AMP,
-    FILE_END
+    INT,               // Integer
+    FLOAT,             // Float
+    CHAR,              // Character
+    STRING,            // String
+    BOOL,              // Boolean
+    KEY_WORD,          // Keyword
+    VAR_NAME,          // Variable name
+    MULT_SYM,          // *
+    ADD_SYM,           // +
+    SUB_SYM,           // -
+    EQU_SYM,           // ==
+    LES_SYM,           // <
+    GRT_SYM,           // >
+    COMMA,             // ,
+    PERIOD,            // .
+    REM_SYM,           // %
+    L_PAR,             // (
+    R_PAR,             // )
+    SEMI_COLON,        // ;
+    COLON,             // :
+    L_BRACK,           // [
+    R_BRACK,           // ]
+    L_BRACE,           // {
+    R_BRACE,           // }
+    FORW_SL,           // /
+    BACK_SL,           // reverse of above lolz
+    D_QUOTE,           // "
+    S_QUOTE,           // '
+    BARS,              // ||
+    P_EQ,              // %=
+    S_EQ,              // -=
+    M_EQ,              // *=
+    D_EQ,              // \=
+    R_EQ,              // %=
+    AND,               // &&
+    FILE_END,          // EOF
+    ASSIGNMENT         // =
 };
 
 class Token {
@@ -69,9 +69,6 @@ class Token {
                 break;
             case BOOL:
                 result.append(": BOOL");
-                break;
-            case TYPE:
-                result.append(": TYPE");
                 break;
             case KEY_WORD:
                 result.append(": KEY_WORD");
@@ -139,8 +136,8 @@ class Token {
             case S_QUOTE:
                 result.append(": S_QUOTE");
                 break;
-            case BAR:
-                result.append(": BAR");
+            case BARS:
+                result.append(": BARS");
                 break;
             case P_EQ:
                 result.append(": P_EQ");
@@ -157,8 +154,8 @@ class Token {
             case R_EQ:
                 result.append(": R_EQ");
                 break;
-            case AMP:
-                result.append(": AMP");
+            case AND:
+                result.append(": AND");
                 break;
             case FILE_END:
                 result.append(": EOF");

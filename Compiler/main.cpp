@@ -6,7 +6,7 @@
 int main(int argc, char ** argv) {
     std::cout << "Enkelt compiler starting" << std::endl;
 
-    Lexer lex = Lexer("test.txt");
+    Lexer lex = Lexer("zztest.txt");
     lex.run();
 
     std::cout << lex.toString() << std::endl;

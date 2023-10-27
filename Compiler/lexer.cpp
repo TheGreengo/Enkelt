@@ -19,7 +19,6 @@ class Lexer {
         
             while (curr != EOF) {
                 curr = file.get();
-
                 if (curr == '+') {
                     if (file.peek() == '=') {
                         tokens.push_back(Token("+=", P_EQ));
@@ -47,6 +46,14 @@ class Lexer {
                 if (curr == '%') {
                     if (file.peek() == '=') {
                         tokens.push_back(Token("%=", R_EQ));
+                        file.get();
+                    } else {
+                        tokens.push_back(Token("%", REM_SYM));
+                    }
+                }
+                if (curr == '=') {
+                    if (file.peek() == '=') {
+                        tokens.push_back(Token("=", R_EQ));
                         file.get();
                     } else {
                         tokens.push_back(Token("%", REM_SYM));
