@@ -1,5 +1,8 @@
 thing + += + = ++ + = 
 thang thung
+/* this is a comment */
 theng - *
+// this is also a comment
+/ /= / /= 7/6
 + 5 += 
 -= %= == = 

@@ -160,6 +160,9 @@ class Token {
             case FILE_END:
                 result.append(": EOF");
                 break;
+            case ASSIGNMENT:
+                result.append(": ASSIGNMENT");
+                break;
             default:
                 result.append("INVALID");
                 break;

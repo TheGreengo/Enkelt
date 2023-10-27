@@ -53,12 +53,33 @@ class Lexer {
                 }
                 if (curr == '=') {
                     if (file.peek() == '=') {
-                        tokens.push_back(Token("=", R_EQ));
+                        tokens.push_back(Token("==", EQU_SYM));
                         file.get();
                     } else {
-                        tokens.push_back(Token("%", REM_SYM));
+                        tokens.push_back(Token("=", ASSIGNMENT));
                     }
                 }
+                if (curr == '/') {
+                    if (file.peek() == '/') {
+                        while (curr != '\n') {
+                            curr = file.get();
+                        }
+                    }
+                    else if (file.peek() == '*') {
+                        while (!((curr == '*') && (file.peek() == '/'))) {
+                            curr = file.get();
+                        }
+                        file.get();
+                    }
+                    else if (file.peek() == '=') {
+                        tokens.push_back(Token("/=", D_EQ));
+                        file.get();
+                    } else {
+                        tokens.push_back(Token("/", FORW_SL));
+                    }
+                }
+                // for / we need to be able tp have both types of comments, as well as division and divide
+                // equals
             }
             file.close();
         }
