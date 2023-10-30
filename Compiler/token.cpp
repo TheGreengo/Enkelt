@@ -27,8 +27,6 @@ enum TokenType {
     R_BRACE,           // }                               DONE
     FORW_SL,           // /                               DONE
     BACK_SL,           // reverse of above lolz           DONE   
-    D_QUOTE,           // "
-    S_QUOTE,           // '
     BARS,              // ||                              DONE
     P_EQ,              // %=                              DONE
     S_EQ,              // -=                              DONE
@@ -129,12 +127,6 @@ class Token {
                 break;
             case BACK_SL:
                 result.append(": BACK_SL");
-                break;
-            case D_QUOTE:
-                result.append(": D_QUOTE");
-                break;
-            case S_QUOTE:
-                result.append(": S_QUOTE");
                 break;
             case BARS:
                 result.append(": BARS");

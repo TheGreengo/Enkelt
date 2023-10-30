@@ -13,6 +13,14 @@ class Lexer {
 
         ~Lexer() { }
 
+        bool isNum(char curr) {
+            return (int(curr) <= 57)  && (int(curr) >= 48);
+        }
+
+        bool isAlpha(char curr) {
+            return (int(curr) <= 90)  && (int(curr) >= 65) || (int(curr) <= 122)  && (int(curr) >= 97);
+        }
+
         void run() {
             char curr;
             std::ifstream file(name);
@@ -22,28 +30,28 @@ class Lexer {
                 if (curr == ':') {
                     tokens.push_back(Token(":", COLON));
                 }
-                if (curr == ';') {
+                else if (curr == ';') {
                     tokens.push_back(Token(";", SEMI_COLON));
                 }
-                if (curr == '(') {
+                else if (curr == '(') {
                     tokens.push_back(Token("(", L_PAR));
                 }
-                if (curr == ')') {
+                else if (curr == ')') {
                     tokens.push_back(Token(")", R_PAR));
                 }
-                if (curr == '[') {
+                else if (curr == '[') {
                     tokens.push_back(Token("[", L_BRACK));
                 }
-                if (curr == ']') {
+                else if (curr == ']') {
                     tokens.push_back(Token("]", R_BRACK));
                 }
-                if (curr == '{') {
+                else if (curr == '{') {
                     tokens.push_back(Token("{", L_BRACE));
                 }
-                if (curr == '}') {
+                else if (curr == '}') {
                     tokens.push_back(Token("}", R_BRACE));
                 }
-                if (curr == '+') {
+                else if (curr == '+') {
                     if (file.peek() == '=') {
                         tokens.push_back(Token("+=", P_EQ));
                         file.get();
@@ -51,7 +59,7 @@ class Lexer {
                         tokens.push_back(Token("+", ADD_SYM));
                     }
                 }
-                if (curr == '-') {
+                else if (curr == '-') {
                     if (file.peek() == '=') {
                         tokens.push_back(Token("-=", S_EQ));
                         file.get();
@@ -59,7 +67,7 @@ class Lexer {
                         tokens.push_back(Token("-", SUB_SYM));
                     }
                 }
-                if (curr == '*') {
+                else if (curr == '*') {
                     if (file.peek() == '=') {
                         tokens.push_back(Token("*=", M_EQ));
                         file.get();
@@ -67,7 +75,7 @@ class Lexer {
                         tokens.push_back(Token("*", MULT_SYM));
                     }
                 }
-                if (curr == '%') {
+                else if (curr == '%') {
                     if (file.peek() == '=') {
                         tokens.push_back(Token("%=", R_EQ));
                         file.get();
@@ -75,7 +83,7 @@ class Lexer {
                         tokens.push_back(Token("%", REM_SYM));
                     }
                 }
-                if (curr == '=') {
+                else if (curr == '=') {
                     if (file.peek() == '=') {
                         tokens.push_back(Token("==", EQU_SYM));
                         file.get();
@@ -83,7 +91,7 @@ class Lexer {
                         tokens.push_back(Token("=", ASSIGNMENT));
                     }
                 }
-                if (curr == '/') {
+                else if (curr == '/') {
                     if (file.peek() == '/') {
                         while (curr != '\n') {
                             curr = file.get();
@@ -108,35 +116,49 @@ class Lexer {
                         tokens.push_back(Token("/", FORW_SL));
                     }
                 }
-                if (curr == '&') {
+                else if (curr == '&') {
                     if (file.peek() == '&') {
                         tokens.push_back(Token("&&", AND));
                         file.get();
                     }
                 }
-                if (curr == '|') {
+                else if (curr == '|') {
                     if (file.peek() == '|') {
-                        tokens.push_back(Token("||", OR));
+                        tokens.push_back(Token("||", BARS));
                         file.get();
                     }
                 }
-                if (curr == '\\') {
-                    tokens.push_back(Token('\\', BACK_SL));
+                else if (curr == '\\') {
+                    tokens.push_back(Token("\\", BACK_SL));
                 }
-                if (curr == ',') {
-                    tokens.push_back(Token(',', COMMA));
+                else if (curr == ',') {
+                    tokens.push_back(Token(",", COMMA));
                 }
-                if (curr == '.') {
-                    tokens.push_back(Token('.', PERIOD));
+                else if (curr == '.') {
+                    tokens.push_back(Token(".", PERIOD));
                 }
-                if (curr == '>') {
-                    tokens.push_back(Token('>', GRT_SYM));
+                else if (curr == '>') {
+                    tokens.push_back(Token(">", GRT_SYM));
                 }
-                if (curr == '<') {
-                    tokens.push_back(Token('<', LES_SYM));
+                else if (curr == '<') {
+                    tokens.push_back(Token("<", LES_SYM));
                 }
-                if (curr == EOF) {
-                    tokens.push_back(Token(EOF, FILE_END));
+                else if (curr == EOF) {
+                    tokens.push_back(Token("EOF", FILE_END));
+                }
+                else if (curr == '\'') {
+
+                }
+                else if (curr == '\"') {
+
+                }
+                else if (isAlpha(curr)) {
+                    bool valInt = true;
+                    bool valFloat = true;
+                }
+                else if (isNum(curr)) {
+                    bool valInt = true;
+                    bool valFloat = true;
                 }
             }
             file.close();
