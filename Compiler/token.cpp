@@ -8,36 +8,36 @@ enum TokenType {
     BOOL,              // Boolean
     KEY_WORD,          // Keyword
     VAR_NAME,          // Variable name
-    MULT_SYM,          // *
-    ADD_SYM,           // +
-    SUB_SYM,           // -
-    EQU_SYM,           // ==
-    LES_SYM,           // <
-    GRT_SYM,           // >
-    COMMA,             // ,
-    PERIOD,            // .
-    REM_SYM,           // %
-    L_PAR,             // (
-    R_PAR,             // )
-    SEMI_COLON,        // ;
-    COLON,             // :
-    L_BRACK,           // [
-    R_BRACK,           // ]
-    L_BRACE,           // {
-    R_BRACE,           // }
-    FORW_SL,           // /
-    BACK_SL,           // reverse of above lolz
+    MULT_SYM,          // *                               DONE
+    ADD_SYM,           // +                               DONE
+    SUB_SYM,           // -                               DONE
+    EQU_SYM,           // ==                              DONE
+    LES_SYM,           // <                               DONE
+    GRT_SYM,           // >                               DONE
+    COMMA,             // ,                               DONE
+    PERIOD,            // .                               DONE
+    REM_SYM,           // %                               DONE
+    L_PAR,             // (                               DONE
+    R_PAR,             // )                               DONE
+    SEMI_COLON,        // ;                               DONE
+    COLON,             // :                               DONE
+    L_BRACK,           // [                               DONE
+    R_BRACK,           // ]                               DONE
+    L_BRACE,           // {                               DONE
+    R_BRACE,           // }                               DONE
+    FORW_SL,           // /                               DONE
+    BACK_SL,           // reverse of above lolz           DONE   
     D_QUOTE,           // "
     S_QUOTE,           // '
-    BARS,              // ||
-    P_EQ,              // %=
-    S_EQ,              // -=
-    M_EQ,              // *=
-    D_EQ,              // \=
-    R_EQ,              // %=
-    AND,               // &&
-    FILE_END,          // EOF
-    ASSIGNMENT         // =
+    BARS,              // ||                              DONE
+    P_EQ,              // %=                              DONE
+    S_EQ,              // -=                              DONE
+    M_EQ,              // *=                              DONE
+    D_EQ,              // /=                              DONE
+    R_EQ,              // %=                              DONE
+    AND,               // &&                              DONE
+    FILE_END,          // EOF                             DONE
+    ASSIGNMENT         // =                               DONE
 };
 
 class Token {

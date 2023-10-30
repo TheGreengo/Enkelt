@@ -19,6 +19,30 @@ class Lexer {
         
             while (curr != EOF) {
                 curr = file.get();
+                if (curr == ':') {
+                    tokens.push_back(Token(":", COLON));
+                }
+                if (curr == ';') {
+                    tokens.push_back(Token(";", SEMI_COLON));
+                }
+                if (curr == '(') {
+                    tokens.push_back(Token("(", L_PAR));
+                }
+                if (curr == ')') {
+                    tokens.push_back(Token(")", R_PAR));
+                }
+                if (curr == '[') {
+                    tokens.push_back(Token("[", L_BRACK));
+                }
+                if (curr == ']') {
+                    tokens.push_back(Token("]", R_BRACK));
+                }
+                if (curr == '{') {
+                    tokens.push_back(Token("{", L_BRACE));
+                }
+                if (curr == '}') {
+                    tokens.push_back(Token("}", R_BRACE));
+                }
                 if (curr == '+') {
                     if (file.peek() == '=') {
                         tokens.push_back(Token("+=", P_EQ));
@@ -74,12 +98,46 @@ class Lexer {
                     else if (file.peek() == '=') {
                         tokens.push_back(Token("/=", D_EQ));
                         file.get();
-                    } else {
+                    } 
+                    else if (file.peek() == '/') { 
+                        while (curr != '\n') {
+                            curr = file.get();
+                        }
+                    }
+                    else {
                         tokens.push_back(Token("/", FORW_SL));
                     }
                 }
-                // for / we need to be able tp have both types of comments, as well as division and divide
-                // equals
+                if (curr == '&') {
+                    if (file.peek() == '&') {
+                        tokens.push_back(Token("&&", AND));
+                        file.get();
+                    }
+                }
+                if (curr == '|') {
+                    if (file.peek() == '|') {
+                        tokens.push_back(Token("||", OR));
+                        file.get();
+                    }
+                }
+                if (curr == '\\') {
+                    tokens.push_back(Token('\\', BACK_SL));
+                }
+                if (curr == ',') {
+                    tokens.push_back(Token(',', COMMA));
+                }
+                if (curr == '.') {
+                    tokens.push_back(Token('.', PERIOD));
+                }
+                if (curr == '>') {
+                    tokens.push_back(Token('>', GRT_SYM));
+                }
+                if (curr == '<') {
+                    tokens.push_back(Token('<', LES_SYM));
+                }
+                if (curr == EOF) {
+                    tokens.push_back(Token(EOF, FILE_END));
+                }
             }
             file.close();
         }
