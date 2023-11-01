@@ -147,18 +147,50 @@ class Lexer {
                     tokens.push_back(Token("EOF", FILE_END));
                 }
                 else if (curr == '\'') {
-
+                    curr = file.get();
+                    if ((curr != '\'') && (file.peek() == '\'')) {
+                        std::string word = "";
+                        word += curr;
+                        tokens.push_back(Token(word, CHAR));
+                    }
+                    curr = file.get();
                 }
                 else if (curr == '\"') {
-
+                std::string word = "";
+                    while (file.peek() != '\"') {
+                        curr = file.get();
+                        word += curr;
+                    }
+                    curr = file.get();
+                    tokens.push_back(Token(word, STRING));
                 }
                 else if (isAlpha(curr)) {
                     bool valInt = true;
                     bool valFloat = true;
                 }
                 else if (isNum(curr)) {
-                    bool valInt = true;
-                    bool valFloat = true;
+                    std::string num = "";
+                    num += curr;
+                    bool per = false;
+                    while(1) {
+                        if (isNum(file.peek())) {
+                            curr = file.get();
+                            num += curr;
+                        }
+                        else if ((file.peek() == '.') && (!per)) {
+                            curr = file.get();
+                            num += curr;
+                            per = true;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+                    if (per) {
+                        tokens.push_back(Token(num, FLOAT));
+                    } else {
+                        tokens.push_back(Token(num, INT));
+                    }
                 }
             }
             file.close();

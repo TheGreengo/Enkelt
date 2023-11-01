@@ -1,8 +1,14 @@
-thing + += + = ++ + = 
-thang thung
-/* this is a comment */
-theng - *
-// this is also a comment
-/ /= / /= 7/6
-+ 5 += 
--= %= == = 
+"this is a string"
+5 + 5 - 6 - 12342134 + 5343.3434 
+2343.23423.42
++ += - -= / /=
+// this will be ignore
+/* as 
+will
+all of 
+this
+*/
+
+'c'
+% %= 
+* *=
