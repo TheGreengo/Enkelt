@@ -27,7 +27,8 @@ class Lexer {
         
             while (curr != EOF) {
                 curr = file.get();
-                if (curr == ':') {
+                if (curr == ' ' || curr == '\n' || curr == '\t') {}
+                else if (curr == ':') {
                     tokens.push_back(Token(":", COLON));
                 }
                 else if (curr == ';') {
@@ -165,8 +166,21 @@ class Lexer {
                     tokens.push_back(Token(word, STRING));
                 }
                 else if (isAlpha(curr)) {
-                    bool valInt = true;
-                    bool valFloat = true;
+                    std::string word = "";
+                    word += curr;
+                    char next = file.peek();
+                    while (isNum(next) || isAlpha(next) || next == '_') {
+                        curr = file.get();
+                        word += curr;
+                    }
+                    if ( word == "int" || word == "char" || word == "string" || word == "bool" || word == "float" || \
+                    word == "func" || word == "case" || word == "class" || word == "final" || word == "for" || \
+                    word == "while" || word == "if" || word == "else" || word == "val" || word == "return" || \
+                    word == "try" || word == "catch" || word == "throw" || word == "in" || word == "switch" ) {
+                        tokens.push_back(Token(word, KEY_WORD));                   
+                    } else if (word == "true" || word == "false") {
+                        tokens.push_back(Token(word, BOOL));
+                    }
                 }
                 else if (isNum(curr)) {
                     std::string num = "";

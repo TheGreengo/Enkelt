@@ -35,6 +35,9 @@ enum TokenType {
     R_EQ,              // %=                              DONE
     AND,               // &&                              DONE
     FILE_END,          // EOF                             DONE
+    NOT,               // !                               DONE
+    TILD,              // ~                               
+    BAR,               // |                               
     ASSIGNMENT         // =                               DONE
 };
 
@@ -156,6 +159,15 @@ class Token {
                 break;
             case ASSIGNMENT:
                 result.append("ASSIGNMENT: ");
+                break;
+            case NOT:
+                result.append("NOT: ");
+                break;
+            case TILD:
+                result.append("TILD: ");
+                break;
+            case BAR:
+                result.append("BAR: ");
                 break;
             default:
                 result.append("INVALID: ");
