@@ -6,7 +6,16 @@ enum TokenType {
     CHAR,              // Character                       NEEDS HELP WITH SPECIAL CHARACTERS
     STRING,            // String                          DONE
     BOOL,              // Boolean
-    KEY_WORD,          // Keyword
+    FOR,
+    WHILE,
+    CLASS_DEC,
+    VOID,
+    INT_DEC,
+    FLOAT_DEC,
+    CHAR_DEC,
+    STRING_DEC,
+    BOOL_DEC,
+    FUNC,
     VAR_NAME,          // Variable name
     MULT_SYM,          // *                               DONE
     ADD_SYM,           // +                               DONE
@@ -69,9 +78,6 @@ class Token {
                 break;
             case BOOL:
                 result.append("BOOL: ");
-                break;
-            case KEY_WORD:
-                result.append("KEY_WORD: ");
                 break;
             case VAR_NAME:
                 result.append("VAR_NAME: ");

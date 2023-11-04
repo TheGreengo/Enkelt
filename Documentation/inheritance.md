@@ -1,5 +1,0 @@
-# Inheritance
-
-# Polymorphism
-
-# Prototype Classes
