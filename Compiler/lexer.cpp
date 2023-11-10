@@ -4,6 +4,33 @@
 #include <vector>
 #include "token.cpp"
 
+class lexer {
+    public:
+        std::string name;
+        std::vector<Token> tokens;
+        std::ifstream file;
+
+        lexer(std::string filename) : name(filename) {
+            file.open(filename);
+        }
+
+        ~lexer() {
+            file.close();
+        }
+
+        bool isNum(char curr) {
+            return (int(curr) <= 57)  && (int(curr) >= 48);
+        }
+
+        bool isAlpha(char curr) {
+            return (int(curr) <= 90)  && (int(curr) >= 65) || (int(curr) <= 122)  && (int(curr) >= 97);
+        }
+
+        void run() {
+            
+        }
+};
+
 class Lexer {
     public:
         std::string name;
@@ -51,6 +78,9 @@ class Lexer {
                 }
                 else if (curr == '}') {
                     tokens.push_back(Token("}", R_BRACE));
+                }
+                else if (curr == '~') {
+                    tokens.push_back(Token("~", TILD));
                 }
                 else if (curr == '+') {
                     if (file.peek() == '=') {
@@ -149,7 +179,20 @@ class Lexer {
                 }
                 else if (curr == '\'') {
                     curr = file.get();
-                    if ((curr != '\'') && (file.peek() == '\'')) {
+                    if (curr == '\\') {
+                        if (file.peek() == 'n') {
+                            tokens.push_back(Token("new line", CHAR));
+                        } else if (file.peek() == 't') {
+                            tokens.push_back(Token("\\t", CHAR));                          
+                        } else if (file.peek() == 'b') {
+                            tokens.push_back(Token("\\b", CHAR));                          
+                        } else if (file.peek() == 'r') {
+                            tokens.push_back(Token("\\r", CHAR));                          
+                        } else if (file.peek() == '\\') {
+                            tokens.push_back(Token("\\", CHAR));                          
+                        }
+                        file.get();
+                    } else if ((curr != '\'') && (file.peek() == '\'')) {
                         std::string word = "";
                         word += curr;
                         tokens.push_back(Token(word, CHAR));
@@ -173,13 +216,30 @@ class Lexer {
                         curr = file.get();
                         word += curr;
                     }
-                    if ( word == "int" || word == "char" || word == "string" || word == "bool" || word == "float" || \
-                    word == "func" || word == "case" || word == "class" || word == "final" || word == "for" || \
-                    word == "while" || word == "if" || word == "else" || word == "val" || word == "return" || \
-                    word == "try" || word == "catch" || word == "throw" || word == "in" || word == "switch" ) {
-                        tokens.push_back(Token(word, KEY_WORD));                   
-                    } else if (word == "true" || word == "false") {
-                        tokens.push_back(Token(word, BOOL));
+                    if ( word == "int"){
+                        tokens.push_back(Token(word, INT_DEC));
+                    } else if ( word == "char"){
+                        tokens.push_back(Token(word, CHAR_DEC));
+                    } else if ( word == "bool"){
+                        tokens.push_back(Token(word, BOOL_DEC));
+                    } else if ( word == "float"){
+                        tokens.push_back(Token(word, FLOAT_DEC));
+                    } else if ( word == "string"){
+                        tokens.push_back(Token(word, STRING_DEC));
+                    } else if ( word == "for"){
+                        tokens.push_back(Token(word, FOR));
+                     }else if ( word == "while"){
+                        tokens.push_back(Token(word, WHILE));
+                    } else if ( word == "func"){
+                        tokens.push_back(Token(word, FUNC));
+                    } else if ( word == "void"){
+                        tokens.push_back(Token(word, FUNC));
+                    } else if ( word == "true" || word == "TRUE"){
+                        tokens.push_back(Token("true", BOOL));
+                    } else if ( word == "false" || word == "FALSE"){
+                        tokens.push_back(Token("false", BOOL));
+                    } else {
+                        tokens.push_back(Token(word, VAR_NAME));
                     }
                 }
                 else if (isNum(curr)) {

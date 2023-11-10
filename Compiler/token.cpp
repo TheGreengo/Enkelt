@@ -5,18 +5,18 @@ enum TokenType {
     FLOAT,             // Float                           DONE
     CHAR,              // Character                       NEEDS HELP WITH SPECIAL CHARACTERS
     STRING,            // String                          DONE
-    BOOL,              // Boolean
-    FOR,
-    WHILE,
-    CLASS_DEC,
-    VOID,
-    INT_DEC,
-    FLOAT_DEC,
-    CHAR_DEC,
-    STRING_DEC,
-    BOOL_DEC,
-    FUNC,
-    VAR_NAME,          // Variable name
+    BOOL,              // Boolean                         DONE
+    FOR,               // for                             DONE
+    WHILE,             // while                           DONE
+    CLASS_DEC,         // class                           DONE
+    VOID,              // void                            DONE
+    INT_DEC,           // int                             DONE
+    FLOAT_DEC,         // float                           DONE
+    CHAR_DEC,          // char                            DONE
+    STRING_DEC,        // string                          DONE
+    BOOL_DEC,          // bool                            DONE
+    FUNC,              // func                            DONE
+    VAR_NAME,          // Variable name                   DONE
     MULT_SYM,          // *                               DONE
     ADD_SYM,           // +                               DONE
     SUB_SYM,           // -                               DONE
@@ -45,8 +45,8 @@ enum TokenType {
     AND,               // &&                              DONE
     FILE_END,          // EOF                             DONE
     NOT,               // !                               DONE
-    TILD,              // ~                               
-    BAR,               // |                               
+    TILD,              // ~                               DONE
+    BAR,               // |                               DONE
     ASSIGNMENT         // =                               DONE
 };
 
