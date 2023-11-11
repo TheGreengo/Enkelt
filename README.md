@@ -8,8 +8,8 @@ The higher level focus of the language is to be as simple (like the name), dange
 
 ### Tasking
 - remake lexer class to be less dumb (a little better broken up)
-- add main token
-- check lexer
+- add escape characters to string (noteworthy that I'm such an idiot that I didn't write "string" when I created this todo)
+- test lexer
 - add custom errors
 - add try/catch blocks in main.cpp
 - write parser's grammar rules

@@ -1,6 +1,7 @@
 #include <string>
 
 enum TokenType {
+    MAIN,              // main                            
     INT,               // Integer                         DONE
     FLOAT,             // Float                           DONE
     CHAR,              // Character                       NEEDS HELP WITH SPECIAL CHARACTERS
@@ -64,6 +65,9 @@ class Token {
             std::string result = "";
             switch (type)
             {
+            case MAIN:
+                result.append("MAIN: ");
+                break;
             case INT:
                 result.append("INT: ");
                 break;
