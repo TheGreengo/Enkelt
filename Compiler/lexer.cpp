@@ -18,16 +18,47 @@ class lexer {
             file.close();
         }
 
+        bool run() {
+            return true;
+        }
+
+        void parseString() {
+
+        }
+
+        void parseChar() {
+
+        }
+
+        void parseNum() {
+
+        }
+
+        void parseWord() {
+
+        }
+
+        std::string toString() {
+            std::string result;
+            for (int i = 0; i < tokens.size(); i++) {
+                result += tokens[i].toString();
+                if (tokens.size() - i > 1) {
+                    result += '\n';
+                }
+            }
+            return result;
+        }
+
+        bool isWhite(char curr) {
+            return curr == ' ' || curr == '\t' || curr == '\n' || curr == '\r';
+        }
+
         bool isNum(char curr) {
             return (int(curr) <= 57)  && (int(curr) >= 48);
         }
 
         bool isAlpha(char curr) {
             return (int(curr) <= 90)  && (int(curr) >= 65) || (int(curr) <= 122)  && (int(curr) >= 97);
-        }
-
-        void run() {
-            
         }
 };
 

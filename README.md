@@ -7,11 +7,15 @@ Mostly this is just to make a language that conforms to my own preferences of ho
 The higher level focus of the language is to be as simple (like the name), dangerous, and fast as possible. I want it to be very keyword rich and to minimize diacritic-esque syntax. It should be simple.
 
 ### Tasking
-- rework scanner to diferentiate between different keywords
-- create corresponding tokens
-- make filename pass in via commandline
-- make commandline "-h" acceptable
-- figure out how to implement the stupid parser
+- remake lexer class to be less dumb (a little better broken up)
+- add main token
+- check lexer
+- add custom errors
+- add try/catch blocks in main.cpp
+- write parser's grammar rules
+- watch videos describing parser
+- write parser (checking syntax)
+- check that parser correctly determines if the 
 
 ### To implement now
 - functions
