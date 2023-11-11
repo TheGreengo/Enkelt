@@ -225,12 +225,15 @@ class Lexer {
         char next = file.peek();
         while (isNum(next) || isAlpha(next) || next == '_') {
             curr = file.get();
+            next = file.peek();
             word += curr;
         }
         if ( word == "int"){
             tokens.push_back(Token(word, INT_DEC));
         } else if ( word == "main"){
             tokens.push_back(Token(word, MAIN));
+        } else if ( word == "return"){
+            tokens.push_back(Token(word, RETURN));
         } else if ( word == "char"){
             tokens.push_back(Token(word, CHAR_DEC));
         } else if ( word == "bool"){
@@ -241,7 +244,7 @@ class Lexer {
             tokens.push_back(Token(word, STRING_DEC));
         } else if ( word == "for"){
             tokens.push_back(Token(word, FOR));
-            }else if ( word == "while"){
+        } else if ( word == "while"){
             tokens.push_back(Token(word, WHILE));
         } else if ( word == "func"){
             tokens.push_back(Token(word, FUNC));

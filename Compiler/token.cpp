@@ -1,11 +1,12 @@
 #include <string>
 
 enum TokenType {
-    MAIN,              // main                            
+    MAIN,              // main                            DONE    
+    RETURN,            // return                          DONE     
     INT,               // Integer                         DONE
     FLOAT,             // Float                           DONE
-    CHAR,              // Character                       NEEDS HELP WITH SPECIAL CHARACTERS
-    STRING,            // String                          DONE
+    CHAR,              // Character                       DONE
+    STRING,            // String                          NEEDS HELP WITH SPECIAL CHARACTERS
     BOOL,              // Boolean                         DONE
     FOR,               // for                             DONE
     WHILE,             // while                           DONE
@@ -67,6 +68,30 @@ class Token {
             {
             case MAIN:
                 result.append("MAIN: ");
+                break;
+            case FOR:
+                result.append("FOR: ");
+                break;
+            case WHILE:
+                result.append("WHILE: ");
+                break;
+            case RETURN:
+                result.append("RETURN: ");
+                break;
+            case INT_DEC:
+                result.append("INT_DEC: ");
+                break;
+            case FLOAT_DEC:
+                result.append("FLOAT_DEC: ");
+                break;
+            case CHAR_DEC:
+                result.append("CHAR_DEC: ");
+                break;
+            case STRING_DEC:
+                result.append("STRING_DEC: ");
+                break;
+            case BOOL_DEC:
+                result.append("BOOL_DEC: ");
                 break;
             case INT:
                 result.append("INT: ");

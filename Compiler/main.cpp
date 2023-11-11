@@ -11,5 +11,7 @@ int main(int argc, char ** argv) {
 
     std::cout << lex.toString() << std::endl;
 
+    std::cout << "Enkelt compiler finished" << std::endl;
+
     return 0;
 }
