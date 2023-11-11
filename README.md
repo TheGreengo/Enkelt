@@ -7,9 +7,6 @@ Mostly this is just to make a language that conforms to my own preferences of ho
 The higher level focus of the language is to be as simple (like the name), dangerous, and fast as possible. I want it to be very keyword rich and to minimize diacritic-esque syntax. It should be simple.
 
 ### Tasking
-- remake lexer class to be less dumb (a little better broken up)
-- add escape characters to string (noteworthy that I'm such an idiot that I didn't write "string" when I created this todo)
-- test lexer
 - add custom errors
 - add try/catch blocks in main.cpp
 - write parser's grammar rules
@@ -24,6 +21,9 @@ The higher level focus of the language is to be as simple (like the name), dange
 - loops
 
 ### To implement later:
+- make this thing not just essentially c++ for Pete's sake
 - classes
 - errors/handling
 - datastructures
+- := assignment
+- escape sequence to string

@@ -163,9 +163,26 @@ class Lexer {
 
     void parseString() {
         std::string word = "";
-        while (file.peek() != '\"') {
-            curr = file.get();
-            word += curr;
+        curr = file.get();
+        while (curr != '\"') {
+            if (curr == '\\') {
+                if (file.peek() == '\\') {
+                    word += '\\';
+                } else if (file.peek() == '\"') {
+                    word += '\"';
+                } else if (file.peek() == '\'') {
+                    word += '\'';
+                } else if (file.peek() == '\n') {
+                    word += '\n';
+                } else if (file.peek() == '\t') {
+                    word += '\t';
+                }
+                file.get();
+                file.get();
+            } else {
+                word += curr;
+                curr = file.get();
+            }
         }
         curr = file.get();
         tokens.push_back(Token(word, STRING));
