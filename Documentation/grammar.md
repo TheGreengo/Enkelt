@@ -5,6 +5,10 @@
 ## Assignment
 
 ## Function Declaration
+{type} {varname}({arglist}) {
+    {declaration/statement}
+    return varname;
+}
 
 ## Conditional
 

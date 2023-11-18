@@ -12,6 +12,10 @@ class Lexer {
     std::ifstream file;
     char curr;
 
+    std::string throwErr(std::string word) {
+        throw word;
+    }
+
     Lexer(std::string filename) : name(filename) {
         file.open(filename);
     }
