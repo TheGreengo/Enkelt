@@ -7,6 +7,7 @@ int main(int argc, char ** argv) {
     if (argc < 2) {
         std::cout << "Error: please provide name of file to be compiled." \
         << std::endl;
+        return 1;
     }
 
     std::cout << "Enkelt compiler starting" << std::endl;

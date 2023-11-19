@@ -1,0 +1,13 @@
+*********************************************************************
+*                                                                   *
+* Just a file for taking notest on  the free udacity compiler class *
+* so that I  have an outline  for the steps  for making a  compiler *
+*                                                                   *
+*********************************************************************
+
+Lexer:
+ - This part I think I've already done.
+ - The course seems to indicate that I didn't do this in the way they
+   describe, i.e. I get all the  tokens up front and don't go back in
+   the stream during the lexing process.
+
