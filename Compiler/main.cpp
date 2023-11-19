@@ -4,13 +4,20 @@
 
 
 int main(int argc, char ** argv) {
+    if (argc < 2) {
+        std::cout << "Error: please provide name of file to be compiled." \
+        << std::endl;
+    }
+
     std::cout << "Enkelt compiler starting" << std::endl;
 
-    Lexer lex("zztest.txt");
+    Lexer lex(argv[1]);
+
     try {
         lex.run();
     } catch (std::string err) {
-        return 1;
+        std::cout << "Parsing error: " << err << std::endl;
+        return 2;
     }
 
     std::cout << lex.toString() << std::endl;
