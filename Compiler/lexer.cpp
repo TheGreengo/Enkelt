@@ -170,12 +170,9 @@ class Lexer {
     void parseString() {
         std::string word = "";
         curr = file.get();
-        int i = 0;
         while (curr != '\"') {
-            i++;
-            if (i > 500) { break; }
             if (curr == EOF) {
-                throw "unterminated string";
+                throw std::string("unterminated string");
             }
             if (curr == '\\') {
                 if (file.peek() == '\\') {
@@ -184,19 +181,18 @@ class Lexer {
                     word += '\"';
                 } else if (file.peek() == '\'') {
                     word += '\'';
-                } else if (file.peek() == '\n') {
+                } else if (file.peek() == 'n') {
                     word += '\n';
-                } else if (file.peek() == '\t') {
+                } else if (file.peek() == 't') {
                     word += '\t';
                 }
-                file.get();
-                file.get();
+                curr = file.get();
+                curr = file.get();
             } else {
                 word += curr;
                 curr = file.get();
             }
             std::cout << word << std::endl;
-            std::cout << file.peek() << std::endl;
         }
         curr = file.get();
         tokens.push_back(Token(word, STRING));
