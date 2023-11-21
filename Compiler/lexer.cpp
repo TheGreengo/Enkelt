@@ -151,7 +151,12 @@ class Lexer {
                 parseChar();
             }
             else if (curr == '\"') {
-                parseString();
+                try {
+                    parseString();
+                }
+                catch (std::string err) {
+                    throw err;
+                }
             }
             else if (isAlpha(curr)) {
                 parseWord();
@@ -165,7 +170,13 @@ class Lexer {
     void parseString() {
         std::string word = "";
         curr = file.get();
+        int i = 0;
         while (curr != '\"') {
+            i++;
+            if (i > 500) { break; }
+            if (curr == EOF) {
+                throw "unterminated string";
+            }
             if (curr == '\\') {
                 if (file.peek() == '\\') {
                     word += '\\';
@@ -184,6 +195,8 @@ class Lexer {
                 word += curr;
                 curr = file.get();
             }
+            std::cout << word << std::endl;
+            std::cout << file.peek() << std::endl;
         }
         curr = file.get();
         tokens.push_back(Token(word, STRING));

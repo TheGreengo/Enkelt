@@ -12,7 +12,6 @@ The higher level focus of the language is to be as simple (like the name), dange
 - write parser's grammar rules
 - watch videos describing parser
 - write parser (checking syntax)
-- check that parser correctly determines if the 
 
 ### To implement now
 - functions

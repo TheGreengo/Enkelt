@@ -5,9 +5,19 @@
 *                                                                   *
 *********************************************************************
 
-Lexer:
+Scanner:
  - This part I think I've already done.
  - The course seems to indicate that I didn't do this in the way they
    describe, i.e. I get all the  tokens up front and don't go back in
    the stream during the lexing process.
+
+Regex:
+ - * after denotes repeat 0 or more times
+ - | means or
+ - repetition > concatenation > alternation
+ - . any char
+ - [] range of chars
+ - ^ other than
+ - + repeat one or more times
+ - ? zero or one time
 
