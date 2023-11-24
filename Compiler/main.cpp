@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "lexer.cpp"
-
 
 int main(int argc, char ** argv) {
     if (argc < 2) {
@@ -9,8 +9,6 @@ int main(int argc, char ** argv) {
         << std::endl;
         return 1;
     }
-
-    std::cout << "Enkelt compiler starting" << std::endl;
 
     Lexer lex(argv[1]);
 
@@ -21,9 +19,15 @@ int main(int argc, char ** argv) {
         return 2;
     }
 
-    std::cout << lex.toString() << std::endl;
+    std::string oFile = argc > 2 ? argv[2] : "a.txt";
 
-    std::cout << "Enkelt compiler finished" << std::endl;
+    std::ofstream out(oFile);
+
+    out << lex.toString() << std::endl;
+
+    out.close();
+
+    std::cout << "Enkelt compiler finished. Results output to " << oFile << std::endl;
 
     return 0;
 }

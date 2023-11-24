@@ -217,6 +217,8 @@ class Lexer {
             std::string word = "";
             word += curr;
             tokens.push_back(Token(word, CHAR));
+        } else {
+            throw std::string("Invalid char (too many characters)");
         }
         curr = file.get();
     }

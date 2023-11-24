@@ -1,6 +1,12 @@
 # Types of statements
-
+{}
 ## Declaration
+{declaration} -> {type} varname;
+{declaration} -> char varname = {char_statement};
+{declaration} -> bool varname = {bool_statement};
+{declaration} -> int varname = {int_statement};
+{declaration} -> float varname = {float_statement};
+{declaration} -> string varname = {string_statement};
 
 ## Assignment
 

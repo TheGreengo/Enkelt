@@ -6,7 +6,7 @@ string makeValid(char[] letters){
 	    result += letters[i];
         } else {
             is_empty = true;
-            return "error;
+            return "error";
             // This shouldn't show up
         }
     }
